@@ -20,10 +20,11 @@ Board = function(board_string){
     str = board_string[i];
     board.push(new Cell(i, str));
   }
+  debugger
 };
 
 Board.prototype.play = function(player, cell){
-  debugger
+
 };
 
 // Board.prototype.play = function(player, cell){
