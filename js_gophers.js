@@ -1,6 +1,7 @@
 Cell = function(str_index, str){
   this.str = str;
-  this.row =
+  this.column = parseInt(str_index) % 9; // There are 6 columns, had to add 1. But now adding 2, so 7 + 2
+  this.row = Math.floor(parseInt(str_index) / 9); // There are 7 columns, had to add 1. Same here, so 8 + 2. Had to lower one.
 };
 
 Cell.prototype = function(){
