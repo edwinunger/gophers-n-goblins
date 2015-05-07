@@ -1,0 +1,25 @@
+.board{
+  position: absolute;
+  left: 25%;
+}
+
+.row_1,.row_2,.row_3,
+.row_4,.row_5,.row_6{
+  display: flex;
+  flex-direction: row;
+}
+
+.cell_1,.cell_2,.cell_3,.cell_4,
+.cell_5,.cell_6,.cell_7 {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.active-gopher{
+  background-color: green;
+}
+
+.active-goblin{
+  background-color: brown;
+}
