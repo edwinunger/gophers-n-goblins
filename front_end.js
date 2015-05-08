@@ -2,25 +2,25 @@
   -Using jQuery selected div with row/col argument
   -Apply player active class to that div.
 */
-var boardDisplay = function  (player, row, col) {
+var drawPiece = function(player, row, col) {
   $(".row_" + row + " .cell_" + col).addClass(player);
 };
 
-/* psuedo
-  -Using jQuery listner:
-    -onclick, pass player and col to our dropPiece function
-    -This function will call drop col
-*/
-var DropPiece = function(player, col) {};
+var clickedCol = function(event) {
+  var x = $(this).attr("class");
+  var col = parseInt(x.split('').pop()); //return col clicked //use parseInt instead.
+  console.log(col);
+  drawPiece("active-gopher", 0, col)    //note player name is the class without period
+
+  //do your shit here
+};
+
+var getCell = function(rowId, cellId){
+  return $('[data-row-id='+rowId+'] [data-cell-id='+cellId+']');
+};
 
 $(document).ready(function(){
-
-    $(".buttons > *").on('click', function(event){
-      //$(this).css("border", "solid black");
-
-      console.log($(this).attr("class"));
-    });
-
+    console.log($(".buttons > *").on('click', clickedCol));
 });
 
 
