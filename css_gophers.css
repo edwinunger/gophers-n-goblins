@@ -1,25 +1,50 @@
-.board{
-  position: absolute;
-  left: 25%;
+.body_center {
+  display: flex;
+  flex-direction: column;
 }
 
-.row_1,.row_2,.row_3,
-.row_4,.row_5,.row_6{
+.flex-container {
+  margin: auto;
+}
+
+.status {
+  background-color: green;
+  text-align: center;
+}
+
+.board {
+  background-color: blue;
+  margin: auto;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  background-color: yellow;
+}
+
+.button_1,.button_2,.button_3,
+.button_4,.button_5,.button_6, .button_7 {
+  flex-grow: 1;
+}
+
+.row_1,.row_2,.row_3,.row_4,.row_5,.row_6 {
   display: flex;
   flex-direction: row;
 }
 
-.cell_1,.cell_2,.cell_3,.cell_4,
-.cell_5,.cell_6,.cell_7 {
+.cell_1,.cell_2,.cell_3,.cell_4,.cell_5,.cell_6,.cell_7 {
   height: 100px;
   width: 100px;
   border: 1px solid black;
+  border-radius: 100%;
+  background-color: white;
 }
 
-.active-gopher{
-  background-color: green;
+.active-gopher {
+  background-color: yellow;
 }
 
-.active-goblin{
-  background-color: brown;
+.active-goblin {
+  background-color: red;
 }
