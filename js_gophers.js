@@ -13,27 +13,51 @@ Cell.prototype = function(){
 
 // Cell.prototype.get_column = function(){
 // };
-
 Board = function(board_string){
-  var board = [];
+  this.board = [];
   for (var i = 0; i < board_string.length; i++) {
     str = board_string[i];
-    board.push(new Cell(i, str));
+    this.board.push(new Cell(i, str));
   }
-  debugger
+
+  var columnArray = [];
+  for(i=41; i >= 0; i--) {
+    if (game.board[i].column === 0) {
+      columnArray.push(game.board[i]);
+    }
+  };
+
+  countDown = 5;
+  if game.board[countDown].str !== "x";
+
+  if (game.board[i].str === "-") {
+    countDown--
+  };
+
+
 };
 
-Board.prototype.play = function(player, cell){
+// Board.prototype.play = function(player, cell){
+//   // On board cell "cell" (so 5th cell), for player 1
+//   // Change .str property from "-" to "goblin"
+// };
 
-};
 
 // Board.prototype.play = function(player, cell){
 //   debugger
 // };
 
+// Board.prototype.nextAvailable = function(column) {
+//   for (var i = 0; i < board.length; i++) {
+
+//   }
+// };
+
 
 game = new Board("------------------------------------------");
-game.play(1, 5)
+// game.nextAvailable(5);
+// game.play(1, 5)
+// game.play(2, 6)
 // game.player1(0)
 
 
