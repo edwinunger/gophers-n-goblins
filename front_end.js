@@ -13,6 +13,16 @@ var boardDisplay = function  (player, row, col) {
 */
 var DropPiece = function(player, col) {};
 
+$(document).ready(function(){
+
+    $(".buttons > *").on('click', function(event){
+      //$(this).css("border", "solid black");
+
+      console.log($(this).attr("class"));
+    });
+
+});
+
 
 
 

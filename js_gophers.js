@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
 
+
+
 Cell = function(str_index, str){
   this.id = parseInt(str_index);
   this.str = str;
