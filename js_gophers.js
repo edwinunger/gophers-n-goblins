@@ -1,8 +1,3 @@
-$(document).ready(function(){
-
-
-
-
 Cell = function(str_index, str){
   this.id = parseInt(str_index);
   this.str = str;
@@ -144,4 +139,3 @@ game.getColumn(1);
 // Orange = function() {
 //   this.diameter = Math.floor((Math.random() * 6) + 1);
 // };
-});

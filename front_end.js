@@ -10,9 +10,9 @@ var clickedCol = function(event) {
   var x = $(this).attr("class");
   var col = parseInt(x.split('').pop()); //return col clicked //use parseInt instead.
   console.log(col);
-  drawPiece("active-gopher", 0, col)    //note player name is the class without period
 
-  //do your shit here
+  //drawPiece here for the piece you want to draw like:
+  //drawPiece("active-gopher", 0, col)    //note player name is the class without period
 };
 
 var getCell = function(rowId, cellId){
