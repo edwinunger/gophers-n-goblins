@@ -19,22 +19,27 @@ Board = function(board_string){
     str = board_string[i];
     this.board.push(new Cell(i, str));
   }
+};
 
-  var columnArray = [];
+Board.prototype.getColumn = function(column) {
+  this.columnArray = [];
   for(i=41; i >= 0; i--) {
-    if (game.board[i].column === 0) {
-      columnArray.push(game.board[i]);
+    if (this.board[i].column === column) {
+      this.columnArray.push(this.board[i]);
     }
-  };
+  }
+};
 
-  countDown = 5;
-  if game.board[countDown].str !== "x";
-
-  if (game.board[i].str === "-") {
-    countDown--
-  };
-
-
+var countUp = 0;
+Board.prototype.columnDrop = function(playerLetter) {
+  if (this.columnArray[countUp].str !== playerLetter) {
+    this.columnArray[countUp].str = playerLetter;
+    countUp = 0;
+  }
+  else if (this.columnArray[countUp].str === playerLetter) {
+    countUp++;
+    this.columnDrop();
+  }
 };
 
 // Board.prototype.play = function(player, cell){
@@ -59,8 +64,14 @@ game = new Board("------------------------------------------");
 // game.play(1, 5)
 // game.play(2, 6)
 // game.player1(0)
-
-
+game.getColumn(0);
+game.columnDrop();
+game.columnDrop();
+game.columnDrop();
+game.getColumn(1);
+game.columnDrop();
+game.columnDrop();
+game.columnDrop();
 // game.player2
 
 // class Guess
