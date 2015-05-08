@@ -28,19 +28,35 @@ Board.prototype.getColumn = function(column) {
       this.columnArray.push(this.board[i]);
     }
   }
+  this.columnDrop();
 };
 
-var countUp = 0;
-Board.prototype.columnDrop = function(playerLetter) {
-  if (this.columnArray[countUp].str !== playerLetter) {
-    this.columnArray[countUp].str = playerLetter;
-    countUp = 0;
+Board.prototype.countUp = 0;
+
+Board.prototype.columnDrop = function() {
+  if (this.columnArray[this.countUp].str !== "x") {
+    this.columnArray[this.countUp].str = "x";
+    this.countUp = 0;
   }
-  else if (this.columnArray[countUp].str === playerLetter) {
-    countUp++;
+  else if (this.columnArray[this.countUp].str === "x") {
+    this.countUp++;
     this.columnDrop();
   }
 };
+
+Board.prototype.to_s = function(){
+  for (var i = 0; i < this.board.length; i++) {
+    for (var y = 0; y < 6; y++) {
+      console.log(this.board[i].str)
+    }
+    console.log("\n")
+    // console.log("String: " + this.board[i].str);
+    // console.log("Column: " + this.board[i].column)
+    // console.log("Row: " + this.board[i].row)
+  }
+}
+
+
 
 // Board.prototype.play = function(player, cell){
 //   // On board cell "cell" (so 5th cell), for player 1
@@ -65,13 +81,13 @@ game = new Board("------------------------------------------");
 // game.play(2, 6)
 // game.player1(0)
 game.getColumn(0);
-game.columnDrop();
-game.columnDrop();
-game.columnDrop();
 game.getColumn(1);
-game.columnDrop();
-game.columnDrop();
-game.columnDrop();
+// game.to_s();
+
+console.log("-") console.log("-")
+
+
+
 // game.player2
 
 // class Guess
