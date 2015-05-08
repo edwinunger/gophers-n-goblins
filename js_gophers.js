@@ -13,30 +13,65 @@ Cell.prototype = function(){
 
 // Cell.prototype.get_column = function(){
 // };
-
 Board = function(board_string){
-  var board = [];
+  this.board = [];
   for (var i = 0; i < board_string.length; i++) {
     str = board_string[i];
-    board.push(new Cell(i, str));
+    this.board.push(new Cell(i, str));
   }
-  debugger
 };
 
-Board.prototype.play = function(player, cell){
-
+Board.prototype.getColumn = function(column) {
+  this.columnArray = [];
+  for(i=41; i >= 0; i--) {
+    if (this.board[i].column === column) {
+      this.columnArray.push(this.board[i]);
+    }
+  }
 };
+
+var countUp = 0;
+Board.prototype.columnDrop = function(playerLetter) {
+  if (this.columnArray[countUp].str !== playerLetter) {
+    this.columnArray[countUp].str = playerLetter;
+    countUp = 0;
+  }
+  else if (this.columnArray[countUp].str === playerLetter) {
+    countUp++;
+    this.columnDrop();
+  }
+};
+
+// Board.prototype.play = function(player, cell){
+//   // On board cell "cell" (so 5th cell), for player 1
+//   // Change .str property from "-" to "goblin"
+// };
+
 
 // Board.prototype.play = function(player, cell){
 //   debugger
 // };
 
+// Board.prototype.nextAvailable = function(column) {
+//   for (var i = 0; i < board.length; i++) {
+
+//   }
+// };
+
 
 game = new Board("------------------------------------------");
-game.play(1, 5)
+// game.nextAvailable(5);
+// game.play(1, 5)
+// game.play(2, 6)
 // game.player1(0)
-
-
+game.getColumn(0);
+game.columnDrop();
+game.columnDrop();
+game.columnDrop();
+game.getColumn(1);
+game.columnDrop();
+game.columnDrop();
+game.columnDrop();
 // game.player2
 
 // class Guess
