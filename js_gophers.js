@@ -49,12 +49,19 @@ Board.prototype.columnDrop = function(player_num) {
   else if (this.columnArray[this.countUp].str === "-") {
     // debugger
     this.columnArray[this.countUp].str = players[player_num];
+    var row_value = this.countUp;
     this.countUp = 0;
+    console.log("am i here?");
+    console.log(row_value, "we should return right now.");
+    return row_value;
   }
   else if (this.columnArray[this.countUp].str !== "-") {
     this.countUp++;
-    this.columnDrop(player_num);
+    var row_value = this.columnDrop(player_num);
   }
+  console.log("We got outside of the loop.", row_value);
+  // return this.
+  return row_value
 };
 
 Board.prototype.play = function(){
