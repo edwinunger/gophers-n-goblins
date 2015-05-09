@@ -41,10 +41,10 @@
   background-color: white;
 }
 
-.active-gopher {
+.player0 {
   background-color: yellow;
 }
 
-.active-goblin {
+.player1 {
   background-color: red;
 }
